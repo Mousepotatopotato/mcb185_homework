@@ -1,0 +1,14 @@
+Sun Jan 21 18:22:14 PST 2024
+user: Peiting
+home: /home/Peiting
+shell: /bin/bash
+pwd: /home/Peiting/Code/mcb185_homework
+path: /usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Windows/System32/OpenSSH:/cygdrive/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/cygdrive/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/cygdrive/c/Program Files/dotnet:/cygdrive/c/Users/Peiting/AppData/Local/Microsoft/WindowsApps
+CYGWIN_NT-10.0-22621 DESKTOP-UL0FTTT 3.4.10-1.x86_64 2023-11-29 12:12 UTC x86_64 Cygwin
+Python 3.9.16
+/home/Peiting/Code
+/home/Peiting/Code/MCB185
+/home/Peiting/Code/MCB185/.git
+/home/Peiting/Code/MCB185/data
+/home/Peiting/Code/mcb185_homework
+/home/Peiting/Code/mcb185_homework/.git
