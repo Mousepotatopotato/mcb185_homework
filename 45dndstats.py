@@ -6,38 +6,23 @@ def r3D6():
 	return stat	
 	
 def r3D6r1():
+	stat = 0
+	for i in range(3):
+		dice = random.randint(1, 6)
+		if dice == 1:
+			dice = random.randint(1, 6)			
+			stat += dice
+		else: stat += dice
 
-	d1 = random.randint(1, 6)
-	while d1 == 1:
-		d1 = random.randint(1, 6)			
-		
-	d2 = random.randint(1, 6)
-	while d2 == 1:
-		d2 = random.randint(1, 6)	
-			
-	d3 = random.randint(1, 6)
-	while d3 == 1:
-		d3 = random.randint(1, 6)			
-	stat = d1 + d2 + d3
 	return stat
 	
 def r3D6x2():
-	d1 = random.randint(1, 6)
-	d2 = random.randint(1, 6)
-	if d1 <= d2: n1 = d2
-	else: n1 = d1
-		
-	d1 = random.randint(1, 6)
-	d2 = random.randint(1, 6)
-	if d1 <= d2: n2 = d2
-	else: n2 = d1
-		
-	d1 = random.randint(1, 6)
-	d2 = random.randint(1, 6)
-	if d1 <= d2: n3 = d2
-	else: n3 = d1
-		
-	stat = n1 + n2 + n3
+	stat = 0
+	for i in range(3):
+		d1 = random.randint(1, 6)
+		d2 = random.randint(1, 6)
+		if d1 <= d2: stat += d2
+		else: stat += d1
 	return stat
 	
 def r4D6d1():

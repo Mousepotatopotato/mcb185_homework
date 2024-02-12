@@ -31,3 +31,8 @@ def find_avg_probability(DC, sit):
 		tot = tot + result
 	probability = tot/10000
 	return probability
+	
+	
+for i in range(5, 16, 5):
+	for sit in ('norm', 'adv', 'disadv'): #I don't think this is taught in class, but it is the only I can come up with.
+		print(find_avg_probability(i, sit))
