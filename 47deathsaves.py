@@ -14,7 +14,10 @@ def death_saves():
 			success += 1
 			if n1 == 20: 
 					condition = 2
-					break
+					break 
+					
+#I hope that we are allowed to use break.
+#I feel this question will be too complicated if we can't. 
 					
 		if fail >= 3:
 			condition = 0
