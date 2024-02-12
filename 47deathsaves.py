@@ -16,12 +16,10 @@ def death_saves():
 					condition = 2
 					break 
 					
-#I hope that we are allowed to use break.
-#I feel this question will be too complicated if we can't. 
-					
 		if fail >= 3:
 			condition = 0
 			break
+			
 		if success >= 3:
 			condition = 1
 			break
@@ -33,11 +31,12 @@ stabilize = 0
 die = 0
 revive = 0	
 for i in range(10000):
-	if death_saves() == 0:
+	condition = death_saves()
+	if condition == 0:
 		die += 1
-	if death_saves() == 1:
+	if condition == 1:
 		stabilize += 1
-	if death_saves() == 2:
+	if condition == 2:
 		revive += 1
 
 print(f'die: {die/10000}')

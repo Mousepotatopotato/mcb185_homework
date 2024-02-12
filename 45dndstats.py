@@ -1,89 +1,73 @@
 import random
 
-n_stat = 6
+# don't use global variable 
 def r3D6():
-	for i in range(n_stat):
-		stat = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
+	stat = random.randint(1, 6) + random.randint(1, 6) + random.randint(1, 6)
 	return stat	
 	
 def r3D6r1():
-	for i in range(n_stat):
-		i1 = random.randint(1, 6)
-		while i1 == 1:
-			i1 = random.randint(1, 6)
+
+	d1 = random.randint(1, 6)
+	while d1 == 1:
+		d1 = random.randint(1, 6)			
+		
+	d2 = random.randint(1, 6)
+	while d2 == 1:
+		d2 = random.randint(1, 6)	
 			
-		i2 = random.randint(1, 6)
-		while i2 == 1:
-			i2 = random.randint(1, 6)	
-			
-		i3 = random.randint(1, 6)
-		while i3 == 1:
-			i3 = random.randint(1, 6)			
-		stat = i1 + i2 + i3
+	d3 = random.randint(1, 6)
+	while d3 == 1:
+		d3 = random.randint(1, 6)			
+	stat = d1 + d2 + d3
 	return stat
 	
 def r3D6x2():
-	for i in range(n_stat):
-		i1 = random.randint(1, 6)
-		i2 = random.randint(1, 6)
-		if i1 <= i2: n1 = i2
-		else: n1 = i1
+	d1 = random.randint(1, 6)
+	d2 = random.randint(1, 6)
+	if d1 <= d2: n1 = d2
+	else: n1 = d1
 		
-		i1 = random.randint(1, 6)
-		i2 = random.randint(1, 6)
-		if i1 <= i2: n2 = i2
-		else: n2 = i1
+	d1 = random.randint(1, 6)
+	d2 = random.randint(1, 6)
+	if d1 <= d2: n2 = d2
+	else: n2 = d1
 		
-		i1 = random.randint(1, 6)
-		i2 = random.randint(1, 6)
-		if i1 <= i2: n3 = i2
-		else: n3 = i1
+	d1 = random.randint(1, 6)
+	d2 = random.randint(1, 6)
+	if d1 <= d2: n3 = d2
+	else: n3 = d1
 		
-		stat = n1 + n2 + n3
+	stat = n1 + n2 + n3
 	return stat
 	
 def r4D6d1():
-	for i in range(n_stat):
-		i1 = random.randint(1, 6)
-		i2 = random.randint(1, 6)
-		i3 = random.randint(1, 6)
-		i4 = random.randint(1, 6)
-		if i1 <= i2:
-			if i1 <= i3:
-				if i1 <= i4:
-					stat = i2 + i3 + i4
+	d1 = random.randint(1, 6)
+	d2 = random.randint(1, 6)
+	d3 = random.randint(1, 6)
+	d4 = random.randint(1, 6)
+	if d1 <= d2 and d1 <= d3 and d1 <= d4:
+		stat = d2 + d3 + d4	
 		
-		if i2 <= i1:
-			if i2 <= i3:
-				if i2 <= i4:
-					stat = i1 + i3 + i4
+	if d2 <= d1 and d2 <= d3 and d2 <= d4:
+		stat = d1 + d3 + d4
 					
-		if i3 <= i1:
-			if i3 <= i2:
-				if i3 <= i4:
-					stat = i2 + i1 + i4
+	if d3 <= d1 and d3 <= d2 and d3 <= d4:
+		stat = d2 + d1 + d4
 					
-		if i4 <= i1:
-			if i4 <= i2:
-				if i4 <= i3:
-					stat = i2 + i3 + i1		
+	if d4 <= d1 and d4 <= d2 and d4 <= d3:
+		stat = d2 + d3 + d1		
 	return stat
 	
-def find_avg(method):
-	n1 = 0
-	n2 = 0
+def find_avg_stat(method):
+	tot_stat = 0
+	stat = 0
 	for i in range(10000):
-		n2 = method()
-		n1 = n1 + n2
-	print(n1/10000)
-	return
+		stat = method()
+		tot_stat += stat
+	avg_stat = tot_stat/10000
+	return avg_stat
 	
-print('r3D6: ', end='')	
-find_avg(r3D6)
-print('r3D6r1: ', end='')	
-find_avg(r3D6r1)
-print('r3D6x2: ', end='')	
-find_avg(r3D6x2)
-print('r4D6d1: ', end='')	
-find_avg(r4D6d1)
-	
+print('r3D6: ', find_avg_stat(r3D6))	
+print('r3D6x2: ', find_avg_stat(r3D6x2))	
+print('r3D6r1: ', find_avg_stat(r3D6r1))	
+print('r4D6d1: ', find_avg_stat(r4D6d1))	
