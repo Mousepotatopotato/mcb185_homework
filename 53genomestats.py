@@ -2,11 +2,15 @@ import gzip
 import sys
 
 def find_max(lengths):
-	maximum = max(lengths)
+	maximum = lengths[0]
+	for val in lengths[1:]:
+		if maximum < val: maximum = val
 	return maximum
 	
 def find_min(lengths):
-	minumum = min(lengths)
+	minumum = lengths[0]
+		for val in lengths[1:]:
+			if minumum > val: minumum = val
 	return minumum
 
 def find_mean(lengths):
@@ -29,7 +33,6 @@ def find_median(lengths):
 	elif len(lengths) % 2 == 0: median = (lengths[middle] + lengths[middle - 1])/2
 	return median
 
-	
 gffpath = sys.argv[1]
 feature = sys.argv[2]
 lengths = []
