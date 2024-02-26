@@ -17,10 +17,13 @@ Participation
 | U | AC | VP | AQ | OC | SH | SA | CA | OA | Tot | Notes
 |:-:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:---:|:--------
 | 5 |  4 |    |    |  2 |    |  1 |    |    |  7  |
-| 6 |
+| 6 |  4 |    |    |    |    |  1 |    |  2 |  7  | 1, 2
 | 7 | 
 | 8 | 
 | 9 |
 
-Notes:
+Notes: 
+
+1. I asked question on discord.
+2. I helped to solve question on discord. 
 
