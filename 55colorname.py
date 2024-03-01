@@ -1,14 +1,14 @@
 import sys
 
 def dtc(P, Q):
-    d = 0
-    for p, q in zip(P, Q):
-        d += abs(p - q)
-    return d #Oh, busted! Caught red-handed, I see. I must say, I applaud...
+	d = 0
+	for p, q in zip(P, Q):
+		d += abs(p - q)
+	return d #Oh, busted!
 
 colorfile = sys.argv[1]
 input_RGB = [int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])]
-#This crap has been moved to line16
+#This has been moved to line16
 distance = 99999
 
 with open(colorfile) as fp:
