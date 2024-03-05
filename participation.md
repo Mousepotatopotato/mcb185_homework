@@ -18,7 +18,7 @@ Participation
 |:-:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:---:|:--------
 | 5 |  4 |    |    |  2 |    |  1 |    |    |  7  |
 | 6 |  4 |    |    |    |    |  1 |    |  2 |  7  | 1, 2
-| 7 | 
+| 7 |  2 |    |    |  2 |    |  1 |    |  1 |  5  | 3
 | 8 | 
 | 9 |
 
@@ -26,4 +26,4 @@ Notes:
 
 1. I asked question on discord.
 2. I helped to solve question on discord. 
-
+3. I asked question on discord.
