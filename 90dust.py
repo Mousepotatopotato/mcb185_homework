@@ -24,10 +24,11 @@ parser.add_argument('-e', '--entropy', type=float,
 parser.add_argument('--lower', action='store_true', help = 'soft mask')
 arg = parser.parse_args()
 
-window = []
-indices = []
-final_seq = []
+
 for defline, seq in mcb185.read_fasta(arg.file):
+	window = []
+	indices = []
+	final_seq = []
 	for s in seq: final_seq.append(s)
 	for s in seq[0:arg.size]: window.append(s)
 	a = 0
