@@ -3,7 +3,7 @@
 import argparse
 import mcb185
 import gzip
-# 92variantsOLD trying to solve this question using dictionary.
+# 92variantsOLD solve this question using dictionary.
 
 parser = argparse.ArgumentParser(prog='variants', 
 	description='variant reporter')
@@ -37,10 +37,11 @@ with gzip.open(arg.vcf, 'rt') as fp:
 		position = int(line.rstrip().split()[1])
 		categories = []
 		for gff_dict in gff_list:
+			if chrom == gff_dict['chrom']: continue
 			if position >= gff_dict['start'] and position <= gff_dict['end']:
-				if chrom == gff_dict['chrom']:
-					if gff_dict['category'] not in categories:
-						categories.append(gff_dict['category'])
+				#if chrom == gff_dict['chrom']:
+				if gff_dict['category'] not in categories:
+					categories.append(gff_dict['category'])
 		result = {'chrom': chrom, 'position': position, 
 			'categories': ', '.join(categories)}
 		if categories: results.append(result)
