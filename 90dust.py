@@ -57,17 +57,20 @@ for defline, seq in mcb185.read_fasta(arg.file):
 			t += s.count('T')
 		if arg.entropy >= entropy(a, c, g, t):
 			indices.append(i)
-
-	print(defline)
 	for n in indices:
-	
-		#generate sequence with low-complexity regions marked as lower case
+		#generate sequence with low-complexity regions
 		if arg.lower:
 			for i in range(arg.size + 1):
 				if final_seq[n + i] == 'A': final_seq[n + i] = 'a'
 				elif final_seq[n + i] == 'T': final_seq[n + i] = 't'
 				elif final_seq[n + i] == 'C': final_seq[n + i] = 'c'
 				elif final_seq[n + i] == 'G': final_seq[n + i] = 'g'
+		else: 
+			for i in range(arg.size + 1):
+				if final_seq[n + i] == 'A': final_seq[n + i] = 'N'
+				elif final_seq[n + i] == 'T': final_seq[n + i] = 'N'
+				elif final_seq[n + i] == 'C': final_seq[n + i] = 'N'
+				elif final_seq[n + i] == 'G': final_seq[n + i] = 'N'
 	print(defline)
 	for i in range(0, len(seq), 60):
 		sequence = ''.join(final_seq[i:i+60])

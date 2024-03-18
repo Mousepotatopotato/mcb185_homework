@@ -12,13 +12,11 @@ parser.add_argument('-a', '--anti', action='store_true',
 	help = 'also examine the anti-parallel strand')
 arg = parser.parse_args()
 
-
 protein = []
 num = 0
-
+num_prot = 0
 for defline, seq in mcb185.read_fasta(arg.file):
 	#translate
-	print(defline, seq)
 	protein_seq = dogma.translate(seq)
 	if arg.anti == True: 
 		rev_seq = dogma.revcomp(seq)
@@ -26,6 +24,7 @@ for defline, seq in mcb185.read_fasta(arg.file):
 	else: rev_protein_seq = ''
 	
 	for p_seq in [protein_seq, rev_protein_seq]:
+		protein = []
 		# start, end index initialize
 		start_index = 'N'
 		end_index = 'N'
@@ -38,12 +37,29 @@ for defline, seq in mcb185.read_fasta(arg.file):
 					end_index = i
 					if end_index - start_index >= arg.min:
 						protein.append(p_seq[start_index:end_index])
+
+						'''
 						print(f'>{defline}')
 						for i in range(0, len(protein[num]), 60):
 							sequence = ''.join(protein[num][i:i+60])
 							print(sequence)
+						'''
+						
 						num += 1
-					#start_index = 'N'
-					#end_index = 'N'
+					start_index = 'N'
+					end_index = 'N'
+		if p_seq == protein_seq:
+			longest_seq = ''
+		for seq in protein:
+			if len(seq) > len(longest_seq):
+				longest_seq = seq
+		if p_seq == rev_protein_seq:
+			if longest_seq != '':
+				print(f'>{defline}')
+				num_prot+=1
+				for i in range(0, len(longest_seq), 60):
+					sequence = ''.join(longest_seq[i:i+60])
+					print(sequence)
 		start_index = 'N'
-
+		
+print(num_prot)
