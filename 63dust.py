@@ -3,12 +3,16 @@ import mcb185
 import math
 
 def entropy(a, c, g, t):
+	e = 0
 	length = a + c + g + t
 	if length != 0:
-		p_a = a/length
-		p_c = c/length
-		p_g = g/length
-		p_t = t/length
+		non_zero = []
+		for n in [a, c, g, t]:
+			if n != 0: non_zero.append(n)
+		for n in non_zero:
+			e -= n/length*math.log(n/length, 2)
+		return e
+	''' simplified
 	if a + c + g + t == 0:
 		return 0
     
@@ -61,13 +65,12 @@ def entropy(a, c, g, t):
 	else:
 		return -1* ((p_t * math.log(p_t, 2)) + (p_c * math.log(p_c, 2)) + 
 		(p_g * math.log(p_g, 2)) + (p_a * math.log(p_a, 2)))
-
+	'''
 w = int(sys.argv[2])
 limit_e = float(sys.argv[3])
 window = []
 indices = []
 final_seq = []
-
 
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
 	for s in seq: final_seq.append(s)

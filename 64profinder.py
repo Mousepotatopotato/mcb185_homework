@@ -24,7 +24,7 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
 						end_index = i
 						if end_index - start_index >= protein_l:
 							protein.append(p_seq[start_index:end_index])
-							print(f'>NC_000913.3-prot-{num}')
+							print(f'>{defline[:11]}-prot-{num}')
 							print(protein[num])
 							num += 1
 						start_index = 'N'		

@@ -6,14 +6,27 @@ import mcb185
 
 w = int(sys.argv[2])
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
-	window = []
-	for s in seq[0:w]: window.append(s)
-	print(0, dogma.gc_comp(window), dogma.gc_skew(window))
-
-	for i in range(1, len(seq) - w + 1):
-		window = window[1:]
-		window.append(seq[i + w - 1])
-		print(i, dogma.gc_comp(window), dogma.gc_skew(window))
+	window = seq[0:w]
+	g_count = window.count('G')
+	c_count = window.count('C')
+	gc_comp = (g_count + c_count) / w
+	gc_skew = (g_count - c_count) / (g_count + c_count)
+	print(0, gc_comp, gc_skew)
+	drop = window[0]
+	for i in range(1, len(seq) - w):
+		gain = seq[i + w]
+		if gain == 'C':
+			c_count += 1
+		elif gain == 'G':
+			g_count += 1
+		if drop == 'C':
+			c_count -= 1
+		elif drop == 'G':
+			g_count -= 1
+			
+		gc_comp = (g_count + c_count) / w
+		gc_skew = (g_count - c_count) / (g_count + c_count)	
+		print(i, gc_comp, gc_skew)
 
 '''
 	if w > 1:

@@ -55,6 +55,7 @@ num = 0
 
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
 	hphobic_sp = False
+	# if I don't need part of the redundancy, should I still make it a function?
 	for i in range(31 - w_sp):
 		if len(seq[i:i + w_sp]) == w_sp:
 			if calc_KD(seq[i:i + w_sp]) >= 2.5:
