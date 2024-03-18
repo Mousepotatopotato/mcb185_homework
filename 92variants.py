@@ -3,7 +3,7 @@
 import argparse
 import mcb185
 import gzip
-# 92variantsOLD is the attempt when I tried to solve this question using dictionary.
+# 92variantsOLD trying to solve this question using dictionary.
 
 parser = argparse.ArgumentParser(prog='variants', 
 	description='variant reporter')
