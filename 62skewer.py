@@ -10,7 +10,9 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
 	g_count = window.count('G')
 	c_count = window.count('C')
 	gc_comp = (g_count + c_count) / w
-	gc_skew = (g_count - c_count) / (g_count + c_count)
+	if g_count + c_count != 0:
+		gc_skew = (g_count - c_count) / (g_count + c_count)
+	else: gc_skew = 0
 	print(0, gc_comp, gc_skew)
 	drop = window[0]
 	for i in range(1, len(seq) - w):
@@ -25,7 +27,9 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
 			g_count -= 1
 			
 		gc_comp = (g_count + c_count) / w
-		gc_skew = (g_count - c_count) / (g_count + c_count)	
+		if g_count + c_count != 0:
+			gc_skew = (g_count - c_count) / (g_count + c_count)	
+		else: gc_skew = 0
 		print(i, gc_comp, gc_skew)
 
 '''
