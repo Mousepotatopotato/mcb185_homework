@@ -1,3 +1,3 @@
 # mcb185_homework
-I edited it
+MCB185 course projects
 
